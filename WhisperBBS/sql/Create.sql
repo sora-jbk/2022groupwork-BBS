@@ -9,10 +9,11 @@ DATAFILE 'C:\pleiades\2022-12\workspace\2022groupwork-BBS\WhisperBBS\CreateTable
 -- ユーザーの作成 --
 CREATE USER whisper
 -- パスワード作成 --
-IDENTIFIED BY pro
+IDENTIFIED BY bbs
 -- 表領域の使用場所 --
-DEFAULT TABLESPACE users
+DEFAULT TABLESPACE cosmos
 -- 一時表領域の使用場所 --
 TEMPORARY TABLESPACE temp
 -- 表領域の割り当て制限 --
 QUOTA 40M on cosmos;
+
