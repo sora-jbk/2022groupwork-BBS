@@ -16,7 +16,7 @@ import bean.PostBean;
 
 public class HelloServlet extends HttpServlet implements db.DBInfo{
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {
-		String sql = "SELECT * FROM "+ TableName +" WHERE ?";
+		String sql = "SELECT * FROM POST WHERE ?";
 		String Resp = "";
 		ArrayList<PostBean> contents = new ArrayList<>();
 		
@@ -32,7 +32,7 @@ public class HelloServlet extends HttpServlet implements db.DBInfo{
 			if(req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
 				ps.setString(1, req.getParameter("R").toString());
 			}else {
-				ps.setString(2, "TRUE");
+				ps.setString(2, "true");
 			}
 			
 			

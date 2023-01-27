@@ -1,9 +1,9 @@
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -16,28 +16,22 @@ import bean.PostBean;
 
 public class HelloServlet extends HttpServlet implements db.DBInfo{
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {
-		String sql = "SELECT * FROM "+ TableName +" WHERE ?";
+		String sql = "SELECT * FROM POST WHERE ?";
 		String Resp = "";
 		ArrayList<PostBean> contents = new ArrayList<>();
 		
+		if(req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
+			Resp = req.getParameter("R");
+		}
 		
 		try {
 			Class.forName(ClassName);
 			
 			Connection con = DriverManager.getConnection(ConStr,User,Pass);
 			
-			PreparedStatement ps = con.prepareStatement(sql);
+			Statement st = con.createStatement();
 			
-			
-			if(req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
-				ps.setString(1, req.getParameter("R").toString());
-			}else {
-				ps.setString(2, "TRUE");
-			}
-			
-			
-			ResultSet rs = ps.executeQuery();
-			
+			ResultSet rs = st.executeQuery(sql);
 			
 			
 			while(rs.next()) {
