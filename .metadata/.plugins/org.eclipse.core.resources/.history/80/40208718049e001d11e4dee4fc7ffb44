@@ -1,0 +1,11 @@
+package bean;
+
+public class PostBean {
+	private String post_id;
+	private String reply_to;
+	private String author;
+	private String content;
+	private String posted_time;
+	private String delted;
+
+}
