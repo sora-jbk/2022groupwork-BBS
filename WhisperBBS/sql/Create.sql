@@ -1,6 +1,12 @@
 -- systemユーザーへの切り替え --
 CONN system / orcl
 
+-- 初期化、作り直し用の削除 --
+DROP TABLE POST;
+DROP SEQUENCE POST_CNT;
+DROP USER whisper CASCADE;
+DROP TABLESPACE cosmos INCLUDING CONTENTS AND DATAFILES;
+
 -- 表領域の作成 --
 CREATE TABLESPACE cosmos
 -- ファイルを置くパスと領域の許容量の指定 --
@@ -17,3 +23,5 @@ TEMPORARY TABLESPACE temp
 -- 表領域の割り当て制限 --
 QUOTA 40M on cosmos;
 
+-- 表の作成 --
+CREATE SEQUENCE POST_CNT
