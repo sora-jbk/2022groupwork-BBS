@@ -16,7 +16,8 @@ import bean.PostBean;
 
 public class SelectPOST extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {
-		String sql = "SELECT * FROM POST WHERE ?";
+		String sql = "SELECT * FROM POST";
+		System.out.println(sql);
 		String Resp = "";
 		ArrayList<PostBean> contents = new ArrayList<>();
 		
@@ -24,16 +25,10 @@ public class SelectPOST extends HttpServlet {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","info","pro");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","whisper","bbs");
 			
 			PreparedStatement ps = con.prepareStatement(sql);
 			
-			
-			if(req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
-				ps.setString(1, req.getParameter("R").toString());
-			}else {
-				ps.setString(2, "TRUE");
-			}
 			
 			
 			ResultSet rs = ps.executeQuery();
@@ -48,7 +43,6 @@ public class SelectPOST extends HttpServlet {
 						rs.getString("CONTENT"),
 						rs.getString("POSTED_TIME")));
 			}
-			
 			
 			req.setAttribute("contents", contents);
 			

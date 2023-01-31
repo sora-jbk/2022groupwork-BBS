@@ -17,6 +17,15 @@
   
   <servlet-mapping>
   	<servlet-name>Indexjsp</servlet-name>
-  	<url-pattern>/Indexjsp</url-pattern>
+  	<url-pattern>/Index</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>SelectJava</servlet-name>
+  	<servlet-class>SelectPOST</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>SelectJava</servlet-name>
+  	<url-pattern>/Home</url-pattern>
   </servlet-mapping>
 </web-app>
