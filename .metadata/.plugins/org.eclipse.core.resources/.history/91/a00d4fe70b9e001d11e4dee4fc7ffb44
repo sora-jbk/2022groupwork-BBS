@@ -1,8 +1,0 @@
-package db;
-
-public interface DBInfo {
-	String ClassName = "";
-	String ConStr = "";
-	String User = "info";
-	String Pass = "pro";
-}

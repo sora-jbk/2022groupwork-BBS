@@ -1,5 +1,0 @@
-package db;
-
-public interface DBInfo {
-	String ClassName = ""; 
-}

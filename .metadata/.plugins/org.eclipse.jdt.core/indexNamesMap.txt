@@ -1,3 +1,0 @@
-INDEX VERSION 1.131
-file:/C:/GroupWork/2022_BBS/2022groupwork-BBS/.metadata/.plugins/org.eclipse.jdt.core/1865797976.index
-meta_index
