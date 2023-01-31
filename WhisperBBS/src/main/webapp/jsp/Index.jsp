@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h1>掲示板</h1>
-	<div class="">
+	<div class="Index">
 		<c:forEach var="post" items="${contents}"><%--var=itemから取り出した要素を変数に格納する item=ループする配列 --%>
 		<table border=1><%--枠線--%>
 			<tr><th>ユーザーId</th><th>投稿</th></tr>

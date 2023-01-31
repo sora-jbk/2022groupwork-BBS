@@ -1,1 +1,34 @@
 @charset "UTF-8";
+
+/*タイムラインっぽくするwraper*/
+div#Index {
+    padding: 0;
+    background: #ffffff;
+    overflow: hidden;
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 80%;
+    border: solid 1px #eeeeee;
+    height: 800px;
+    overflow-y: scroll;
+}
+/*日付をヘッダーっぽくする*/
+div#Index  {
+    background: #58aeed;
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    color: #eeeeee;
+}
+h1 {
+    padding: 0;
+    background: #ffffff;
+    overflow: hidden;
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 80%;
+    border: solid 1px #eeeeee;
+    height: 800px;
+    overflow-y: scroll;
+}
