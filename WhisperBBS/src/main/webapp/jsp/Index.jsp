@@ -19,6 +19,9 @@
 			</c:forEach>
 		</table>
 	</div>
+	<div class="">
+		<%@ include file="common/PostBox.jsp" %>
+	</div>
 	
 </body>
 </html>
