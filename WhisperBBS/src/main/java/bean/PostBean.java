@@ -9,6 +9,20 @@ public class PostBean {
 	private String delted;
 	
 	
+	public PostBean(String post_id, 
+			String reply_to, 
+			String author, 
+			String content, 
+			String posted_time) {
+		
+		this.post_id = post_id;
+		this.reply_to = reply_to;
+		this.author = author;
+		this.content = content;
+		this.posted_time = posted_time;
+		
+	}
+	
 	public String getPost_id() {
 		return post_id;
 	}
