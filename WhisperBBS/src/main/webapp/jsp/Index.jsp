@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<%--javaのメソッドを呼び出してくる<%= %> --%>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/Index.css"><%--cssファイルの呼び出し --%>
 <title>Insert title here</title>
 </head>
