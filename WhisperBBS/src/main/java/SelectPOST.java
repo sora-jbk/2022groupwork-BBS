@@ -28,7 +28,9 @@ public class SelectPOST extends HttpServlet {
 		try {
 			//Oracleにユーザー名whiser,パスワードbbsで接続
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","whisper","bbs");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl"
+					,"whisper"
+					,"bbs");
 			
 			//sql文を実行
 			PreparedStatement ps = con.prepareStatement(sql);
