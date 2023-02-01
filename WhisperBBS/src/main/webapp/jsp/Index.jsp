@@ -11,7 +11,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div class="title">
 	<h1>掲示板</h1>
+	</div>
 	<div class="Index">
 		<c:forEach var="post" items="${contents}"><%--var=itemから取り出した要素を変数に格納する item=ループする配列 --%>
 		<table border=1><%--枠線--%>
