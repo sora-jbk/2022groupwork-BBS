@@ -46,7 +46,7 @@ public class SelectPOST extends HttpServlet {
 			
 			req.setAttribute("contents", contents);
 			
-			RequestDispatcher rd = req.getRequestDispatcher("Index");
+			RequestDispatcher rd = req.getRequestDispatcher("Print");
 			
 			rd.forward(req, res);
 			

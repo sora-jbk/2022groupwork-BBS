@@ -8,16 +8,15 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
-  </welcome-file-list>
+  </welcome-file-list>		
   
   <servlet>
   	<servlet-name>Indexjsp</servlet-name>
   	<jsp-file>/jsp/Index.jsp</jsp-file>
   </servlet>
-  
   <servlet-mapping>
   	<servlet-name>Indexjsp</servlet-name>
-  	<url-pattern>/Index</url-pattern>
+  	<url-pattern>/Print</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -30,8 +29,17 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>InsertJava</servlet-name>
+  	<servlet-class>InsertPOST</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>InsertJava</servlet-name>
+  	<url-pattern>/InsertPOST</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>PostBoxjsp</servlet-name>
-  	<jsp-file>/common/jsp/PostBox.jsp</jsp-file>
+  	<jsp-file>/jsp/common/PostBox.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
   	<servlet-name>PostBoxjsp</servlet-name>
