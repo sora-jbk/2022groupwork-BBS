@@ -1,9 +1,11 @@
 <%--投稿用 --%>
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%--jstl --%>
 
-	<from method="post" action="adduser">
-		name<input type="text" name="name">
-		coment<input type="text" name="coment">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/common/PostBox.css">
+
+	<form method="post" action="InsertPOST">
+		ユーザー<input type="text" name="name"><br><%--単一行のテキスト入力欄 1行を超えると消えちゃう --%>
+		コメント<textarea name="content" rows=10></textarea><br><%--複数行入力できる->textarea --%>
 		<input type="submit" value="投稿">
 	</from>
