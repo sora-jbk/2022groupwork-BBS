@@ -8,7 +8,7 @@ public class PostBean {
 	private String posted_time;
 	private String delted;
 	
-	
+//	コンストラクタ
 	public PostBean(String post_id, 
 			String reply_to, 
 			String author, 
