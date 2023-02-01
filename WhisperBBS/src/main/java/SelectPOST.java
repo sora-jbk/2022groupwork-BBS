@@ -15,26 +15,27 @@ import javax.servlet.http.HttpServletResponse;
 import bean.PostBean;
 
 public class SelectPOST extends HttpServlet {
+	
+//	doGetメソッドをオーバーライド
+	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {
-		String sql = "SELECT * FROM POST";
-		System.out.println(sql);
-		String Resp = "";
-		ArrayList<PostBean> contents = new ArrayList<>();
+		
+
+		String sql = "SELECT * FROM POST";	//SELECT文
+		ArrayList<PostBean> contents = new ArrayList<>();	//Beanを格納するためのリスト
 		
 		
 		try {
+			//Oracleにユーザー名whiser,パスワードbbsで接続
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","whisper","bbs");
 			
+			//sql文を実行
 			PreparedStatement ps = con.prepareStatement(sql);
-			
-			
-			
 			ResultSet rs = ps.executeQuery();
 			
 			
-			
+			//PostBeanをインスタンス化し、contentsに格納
 			while(rs.next()) {
 				contents.add(new PostBean(
 						rs.getString("POST_ID"),
@@ -44,10 +45,14 @@ public class SelectPOST extends HttpServlet {
 						rs.getString("POSTED_TIME")));
 			}
 			
+			//jspにcontentsを渡す
 			req.setAttribute("contents", contents);
 			
+			//移動先をPrintに設定
 			RequestDispatcher rd = req.getRequestDispatcher("Print");
 			
+			
+			//ページを移動
 			rd.forward(req, res);
 			
 		}catch (ClassNotFoundException e) {
