@@ -32,9 +32,20 @@ public class SelectPOST extends HttpServlet {
 					,"whisper"
 					,"bbs");
 			
+			
+			//パラメータ"R"がnullでなければWHERE句を追加
+			String Rep = req.getParameter("R").toString();
+			
+			if(Rep != null && !Rep.isEmpty()) {
+				sql = sql + " WHERE REPLY_TO='" + Rep +"'";
+			}
+			
+			
+			
 			//sql文を実行
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
+			
 			
 			
 			//PostBeanをインスタンス化し、contentsに格納
