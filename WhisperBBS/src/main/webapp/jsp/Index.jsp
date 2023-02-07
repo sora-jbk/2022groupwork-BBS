@@ -17,6 +17,7 @@
 		<table border=1><%--枠線--%>
 			<tr><th>ユーザーId</th><th>投稿</th></tr>
 				<tr><td>${post.post_id}</td><td>${post.reply_to}</td><td>${post.author}</td><td>${post.content}</td><td>${post.posted_time}</td></tr>
+				<a href="Home?R=${post.post_id}" >返信を見る</a>
 			</c:forEach>
 		</table>
 	</div>
