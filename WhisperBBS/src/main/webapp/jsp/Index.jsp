@@ -12,12 +12,12 @@
 </head>
 <body>
 	<div class="title">
-	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-	<form method="get" action="#" class="search_container">
-  	<input type="text" size="25" placeholder="キーワード検索">
-  	<input type="submit" value="&#xf002">
-	</form>
+		<form method="get" action="Home" class="search_container">
+		  	<input type="text" size="25" placeholder="キーワード検索" name="S">
+  			<input type="submit" value="&#xf002">
+		</form>
 	</div>
 	<div class="Index">
 		<c:forEach var="post" items="${contents}"><%--var=itemから取り出した要素を変数に格納する item=ループする配列 --%>
