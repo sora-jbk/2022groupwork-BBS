@@ -40,9 +40,12 @@ public class SelectPOST extends HttpServlet {
 				sql = sql + " WHERE REPLY_TO IS NULL";
 			}
 			
-			
+			if (req.getParameter("S") != null && !req.getParameter("S").isEmpty()) {
+				sql = sql + " AND CONTENT LIKE '%" + req.getParameter("S") + "%'";
+			}
 			
 			//sql文を実行
+			
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			
