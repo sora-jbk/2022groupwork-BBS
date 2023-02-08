@@ -36,6 +36,8 @@ public class SelectPOST extends HttpServlet {
 			//パラメータ"R"がnullでなければWHERE句を追加
 			if(req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
 				sql = sql + " WHERE REPLY_TO='" + req.getParameter("R") +"'";
+			}else {
+				sql = sql + " WHERE REPLY_TO IS NULL";
 			}
 			
 			
