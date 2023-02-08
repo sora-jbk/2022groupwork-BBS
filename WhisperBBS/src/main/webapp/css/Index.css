@@ -3,31 +3,37 @@ head {
 	font-size: 100%;
 }
 
-/*タイムラインっぽくするwraper*/
+title.h1 {
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  padding: 3px 10px;
+  border-radius: 20px;
+  height: 2.3em;
+  width: 260px;
+}
+.search_container input[type="text"]{
+  border: none;
+  height: 2.0em;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="submit"]{
+  cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  border-radius: 20%;
+  background: #3879D9;
+  color: #fff;
+  outline : none;
+  width: 2.0em;
+  height: 2.0em;
+}
+	
 Index {
-    padding: 0;
-    background: #ffffff;
-    overflow: hidden;
-    max-width: 700px;
-    margin: 20px auto;
-    font-size: 80%;
-    border: solid 1px #eeeeee;
-    height: 800px;
-    overflow-y: scroll;
-}
-/*日付をヘッダーっぽくする*/
-Index  {
-    background: #58aeed;
-    padding: 10px;
-    text-align: center;
-    margin: 0 auto;
-    display: block;
-    color: #eeeeee;
-}
-h1 {
-    padding: 0;
-    background: #ffffff;
-    overflow: hidden;
-    max-width: 700px;
-    margin: 20px auto;
+	width: 500px;
+	margin: 100px;
+	padding: 100px;
+	
 }
