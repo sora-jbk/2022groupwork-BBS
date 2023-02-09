@@ -4,9 +4,9 @@ CONN system / orcl
 -- ユーザーの作成 --
 CREATE USER whisper
 -- パスワード作成 --
-IDENTIFIED BY bbs;
+IDENTIFIED BY bbs
 -- 容量の割り当て --
-QUOTA 50M on cosmos;
+QUOTA 50M on users;
 
 -- 権限の付与 --
 GRANT CREATE SESSION,
