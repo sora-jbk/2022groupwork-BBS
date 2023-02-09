@@ -18,8 +18,12 @@ public class InsertPOST extends HttpServlet {
 		String name = req.getParameter("name");
 		//パラメータcontentを取得
 		String content = req.getParameter("content");
+		
+		String reply = req.getParameter("R");
+		
+		System.out.println(reply);
 		//InsertSQL文
-		String sql = "INSERT INTO POST(AUTHOR, CONTENT) VALUES(?, ?)";
+		String sql = "INSERT INTO POST(AUTHOR, CONTENT, REPLY_TO) VALUES(?, ?, ?)";
 		
 		//nameが空のとき"null"に置き換え
 		if(name == null || name.isEmpty()) {
@@ -27,6 +31,9 @@ public class InsertPOST extends HttpServlet {
 		}
 		if(content == null || content.isEmpty()) {
 			name = "null";
+		}
+		if(reply == null ||  reply.isEmpty()) {
+			reply = "null";
 		}
 		
 		
@@ -41,6 +48,7 @@ public class InsertPOST extends HttpServlet {
 			//バインド変数に代入
 			st.setString(1, name);
 			st.setString(2, content);
+			st.setString(3, reply);
 			
 			//SQLを実行
 			st.executeUpdate();
@@ -55,7 +63,7 @@ public class InsertPOST extends HttpServlet {
 		try {
 			
 			//Homeに画面を遷移
-			res.sendRedirect("Home");
+			res.sendRedirect("Home?R="+reply);
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
