@@ -18,6 +18,8 @@ CREATE TABLESPACE cosmos
 DATAFILE 'C:\pleiades\2022-12\workspace\2022groupwork-BBS\WhisperBBS\CreateTableSpace.dbf' 
 SIZE 40M reuse;
 
+
+
 -- ユーザーの作成 --
 CREATE USER whisper
 -- パスワード作成 --
@@ -75,3 +77,9 @@ CREATE TABLE POST(
 
 
 
+--削除--
+DROP TABLESPACE cosmos INCLUDING CONTENTS AND DATAFILES;
+
+ALTER TABLESPACE cosmos OFFLINE;
+
+SHUTDOWN IMMEDIATE;
