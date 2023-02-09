@@ -33,7 +33,10 @@ public class InsertPOST extends HttpServlet {
 			name = "null";
 		}
 		if(reply == null ||  reply.isEmpty()) {
-			reply = "null";
+			reply = "";
+		}
+		if(reply.toLowerCase().equals("null")) {
+			reply = "";
 		}
 		
 		
