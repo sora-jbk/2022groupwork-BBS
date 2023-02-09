@@ -1,7 +1,5 @@
 -- 初期化、作り直し用の削除 --
 DROP USER whisper CASCADE;
-DROP TABLESPACE cosmos INCLUDING CONTENTS;
-
 
 -- 初期化、作り直し用の削除 --
 DROP TABLE POST;
