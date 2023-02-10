@@ -27,6 +27,14 @@
   	<servlet-name>SelectJava</servlet-name>
   	<url-pattern>/Home</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>DeletePOST</servlet-name>
+  	<servlet-class>DeletePOST</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeletePOST</servlet-name>
+  	<url-pattern>/Delete</url-pattern>
+  </servlet-mapping>
   
   <servlet>
   	<servlet-name>InsertJava</servlet-name>
