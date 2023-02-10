@@ -6,20 +6,22 @@ public class PostBean {
 	private String author;
 	private String content;
 	private String posted_time;
-	private String delted;
+	private String deleted;
 	
 //	コンストラクタ
 	public PostBean(String post_id, 
 			String reply_to, 
 			String author, 
 			String content, 
-			String posted_time) {
+			String posted_time,
+			String deleted) {
 		
 		this.post_id = post_id;
 		this.reply_to = reply_to;
 		this.author = author;
 		this.content = content;
 		this.posted_time = posted_time;
+		this.deleted = deleted;
 		
 	}
 	
@@ -38,8 +40,8 @@ public class PostBean {
 	public String getPosted_time() {
 		return posted_time;
 	}
-	public String getDelted() {
-		return delted;
+	public String getDeleted() {
+		return deleted;
 	}
 
 }
