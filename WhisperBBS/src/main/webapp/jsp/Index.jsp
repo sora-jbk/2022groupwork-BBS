@@ -23,8 +23,16 @@
 		<table border=1><%--枠線--%>
 		<tr><th>ユーザーId</th><th>投稿</th></tr>
 		<c:forEach var="post" items="${contents}"><%--var=itemから取り出した要素を変数に格納する item=ループする配列 --%>
-				<tr><td>${post.post_id}</td><td>${post.reply_to}</td><td>${post.author}</td><td>${post.content}</td><td>${post.posted_time}</td>
-				<td><a href="Home?R=${post.post_id}" >返信を見る</a></td></tr>
+				<tr>
+					<td>${post.post_id}</td><td>${post.reply_to}</td><td>${post.author}</td><td>${post.content}</td><td>${post.posted_time}</td>
+					<td><a href="Home?R=${post.post_id}" >返信を見る</a></td>
+					<td>
+						<form method="post" action="Delete">
+							<input type="hidden" name="D" value="${post.post_id }">
+							<input type="submit" value="削除">
+						</form>
+					</td>
+				</tr>
 			</c:forEach>
 		</table>
 	</div>
