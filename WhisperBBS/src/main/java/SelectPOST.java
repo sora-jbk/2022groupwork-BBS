@@ -53,12 +53,21 @@ public class SelectPOST extends HttpServlet {
 			
 			//PostBeanをインスタンス化し、contentsに格納
 			while(rs.next()) {
-				contents.add(new PostBean(
-						rs.getString("POST_ID"),
-						rs.getString("REPLY_TO"),
-						rs.getString("AUTHOR"),
-						rs.getString("CONTENT"),
-						rs.getString("POSTED_TIME")));
+				if (rs.getString("DELETED").equals("0")) {
+					contents.add(new PostBean(
+							rs.getString("POST_ID"),
+							rs.getString("REPLY_TO"),
+							rs.getString("AUTHOR"),
+							rs.getString("CONTENT"),
+							rs.getString("POSTED_TIME")));
+				} else {
+					contents.add(new PostBean(
+							rs.getString("POST_ID"),
+							rs.getString("REPLY_TO"),
+							rs.getString("AUTHOR"),
+							"DELETED",
+							rs.getString("POSTED_TIME")));
+				}
 			}
 			
 			//jspにcontentsを渡す
