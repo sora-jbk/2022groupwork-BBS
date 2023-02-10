@@ -24,6 +24,16 @@
 .box {
 	width:100%;
 }
+
+.item {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: double 5px #4ec4d3;
+    
+	margin: 0; 
+    padding: 0;
+}
+
 .coment {
 	width: 100%;
 }
@@ -36,6 +46,12 @@
 	margin: 0; 
     padding: 0;
 }
+
+.time {
+    display: flex;
+    justify-content: flex-end;
+}
+
 </style>
 <meta charset="UTF-8">
 <a href="http://localhost:8080/WhisperBBS/Home"><img src="https://memo-labo.com/images/20211012-1.png" class="logo"></a><%--ホーム画面に戻る --%>
@@ -50,11 +66,13 @@
   			<input type="submit" value="検索">
 		</form>
 	</div>
-		<tr><th>投稿番号</th><th>投稿</th></tr>
+		<div class="item">
+		<tr><th>投稿</th></tr>
+		</div>
 		<c:forEach var="post" items="${contents}"><%--var=itemから取り出した要素を変数に格納する item=ループする配列 --%>
 			<div class="Index">
-			<tr><td>${post.post_id}</td><td>${post.reply_to}</td><td>${post.author}</td><td>${post.posted_time}</td><br><td>${post.content}</td></br>
-			<br><td><a href="Home?R=${post.post_id}" >返信を見る</a></td></br></tr>
+			<tr><td>${post.post_id} : </td><td>${post.reply_to}</td><td>${post.author}</td><td><p style="opacity:0.5" class="time">${post.posted_time}</p></td><br><td>${post.content}</td></br>
+			<br><td><a href="Home?R=${post.post_id}" ><input type="submit" value="返信を見る"></a></td></br></tr>
 			</div>
 		</c:forEach>
 	<div class="Post">
