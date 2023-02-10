@@ -26,8 +26,8 @@
 				<tr>
 					<td>${post.post_id}</td><td>${post.reply_to}</td><td>${post.author}</td><td>${post.content}</td><td>${post.posted_time}</td>
 					<td>
-						<c:set var="flg" value="${post.deleted}">
-						<c:if  test="${flg==0}">
+						<c:set var="flg" value="${post.deleted}"/>
+						<c:if test="${flg==0}">
 							<a href="Home?R=${post.post_id}" >返信を見る</a>
 						</c:if>
 					</td>
