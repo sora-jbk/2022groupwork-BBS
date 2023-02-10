@@ -59,14 +59,16 @@ public class SelectPOST extends HttpServlet {
 							rs.getString("REPLY_TO"),
 							rs.getString("AUTHOR"),
 							rs.getString("CONTENT"),
-							rs.getString("POSTED_TIME")));
+							rs.getString("POSTED_TIME"),
+							rs.getString("DELETED")));
 				} else {
 					contents.add(new PostBean(
 							rs.getString("POST_ID"),
 							rs.getString("REPLY_TO"),
 							rs.getString("AUTHOR"),
 							"DELETED",
-							rs.getString("POSTED_TIME")));
+							rs.getString("POSTED_TIME"),
+							rs.getString("DELETED")));
 				}
 			}
 			
