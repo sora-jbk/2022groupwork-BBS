@@ -1,6 +1,7 @@
 @charset "UTF-8";
-form.box {
-	
+
+.box {
+	background-color: black;	
 	position: fixed;
 	bottom: 0;
 }
