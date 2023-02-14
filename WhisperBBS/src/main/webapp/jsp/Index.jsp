@@ -10,12 +10,9 @@
 		width: 50px;
 		height: 50px;
 	}
-	.title{
-	
-	}
 	
 	.Post {
-		background-color: #909595;	
+		background-color: #70a2a2;
 		
 		position: sticky;
 		bottom: 0;
@@ -28,7 +25,7 @@
 	.item {
 	    padding: 0.5em 1em;
 	    margin: 2em 0;
-	    border: double 5px #9ba7a8;
+	    border:solid 5px #9ba7a8;
 	    
 		margin: 0; 
 	    padding: 0;
@@ -38,14 +35,6 @@
 		width: 100%;
 	}
 	
-	.Index {
-	    padding: 0.5em 1em;
-	    margin: 2em 0;
-	    border: double 5px #858d8e;
-	    
-		margin: 0; 
-	    padding: 0;
-	}
 	</style>
 	<meta charset="UTF-8">
 	<a href="http://localhost:8080/WhisperBBS/Home"><img src="https://memo-labo.com/images/20211012-1.png" class="logo"></a><%--ホーム画面に戻る --%>
