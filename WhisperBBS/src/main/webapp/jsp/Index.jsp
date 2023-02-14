@@ -37,11 +37,12 @@
 	
 	</style>
 	<meta charset="UTF-8">
-	<a href="http://localhost:8080/WhisperBBS/Home"><img src="https://memo-labo.com/images/20211012-1.png" class="logo"></a><%--ホーム画面に戻る --%>
+	<link rel="shortcut icon" href="<%=request.getContextPath() %>\images\whispericon.JPG">
 	<%--javaのメソッドを呼び出してくる<%= %> --%>
 	<title>Insert title here</title>
 	</head>
-	<body>
+	<body>	
+		<a href="http://localhost:8080/WhisperBBS/Home"><img src="<%=request.getContextPath() %>\images\whispericon.JPG" class="logo"></a><%--ホーム画面に戻る --%>
 		<div class="title">
 			<form method="get" action="Home" class="search_container">
 			  	<input type="text" size="25" placeholder="キーワード検索" name="S">
