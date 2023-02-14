@@ -58,7 +58,7 @@ public class SelectPOST extends HttpServlet {
 							rs.getString("POST_ID"),
 							rs.getString("REPLY_TO"),
 							rs.getString("AUTHOR"),
-							rs.getString("CONTENT"),
+							rs.getString("CONTENT").replace("\n", "<br>"),
 							rs.getString("POSTED_TIME"),
 							rs.getString("DELETED")));
 				} else {
