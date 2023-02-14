@@ -5,18 +5,65 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.logo {
+	width: 50px;
+	height: 50px;
+}
+.title{
+
+}
+
+.Post {
+	background-color: #4ec4d3;	
+	<%--position: fixed;--%>
+	position: sticky;
+	bottom: 0;
+}
+
+.box {
+	width:100%;
+}
+
+.item {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: double 5px #4ec4d3;
+    
+	margin: 0; 
+    padding: 0;
+}
+
+.coment {
+	width: 100%;
+}
+
+.Index {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    border: double 5px #4ec4d3;
+    
+	margin: 0; 
+    padding: 0;
+}
+
+.time {
+    display: flex;
+    justify-content: flex-end;
+}
+
+</style>
 <meta charset="UTF-8">
+<a href="http://localhost:8080/WhisperBBS/Home"><img src="https://memo-labo.com/images/20211012-1.png" class="logo"></a><%--ホーム画面に戻る --%>
 <%--javaのメソッドを呼び出してくる<%= %> --%>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/Index.css"><%--cssファイルの呼び出し --%>
 <title>Insert title here</title>
 </head>
 <body>
 	<div class="title">
-		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 		<form method="get" action="Home" class="search_container">
 		  	<input type="text" size="25" placeholder="キーワード検索" name="S">
-  			<input type="submit" value="&#xf002">
+  			<input type="submit" value="検索">
 		</form>
 	</div>
 	<div class="Index">
@@ -41,10 +88,8 @@
 			</c:forEach>
 		</table>
 	</div>
-	
 	<div class="Post">
 		<%@ include file="common/PostBox.jsp" %>
 	</div>
-	
 </body>
 </html>
