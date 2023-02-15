@@ -50,6 +50,11 @@
 			</form>
 		</div>
 		<div class="Index">
+			<c:if test="${empty R }">
+				<div class="thread_title">
+					<div class="title">${root }</div>
+				</div>
+			</c:if>
 			<c:forEach var="post" items="${contents}"><%--var=itemから取り出した要素を変数に格納する item=ループする配列 --%>
 				<div class="item">
 					<div class="id">投稿番号:${post.post_id}</div>
