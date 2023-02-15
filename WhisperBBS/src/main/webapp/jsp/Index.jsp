@@ -52,7 +52,7 @@
 		<div class="Index">
 			<c:if test="${empty R }">
 				<div class="thread_title">
-					<div class="title">${root.contents }</div>
+					<div class="title">${root.content }</div>
 				</div>
 			</c:if>
 			<c:forEach var="post" items="${contents}"><%--var=itemから取り出した要素を変数に格納する item=ループする配列 --%>
