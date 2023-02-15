@@ -39,7 +39,7 @@
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" href="<%=request.getContextPath() %>\images\whispericon.JPG">
 	<%--javaのメソッドを呼び出してくる<%= %> --%>
-	<title>Insert title here</title>
+	<title>WhiperBBS</title>
 	</head>
 	<body>	
 		<a href="http://localhost:8080/WhisperBBS/Home"><img src="<%=request.getContextPath() %>\images\whispericon.JPG" class="logo"></a><%--ホーム画面に戻る --%>
@@ -52,11 +52,21 @@
 		<div class="Index">
 			<c:forEach var="post" items="${contents}"><%--var=itemから取り出した要素を変数に格納する item=ループする配列 --%>
 				<div class="item">
-					<div class="id">${post.post_id}</div>
-					<div class="reply">${post.reply_to}</div>
-					<div class="author">${post.author}</div>
-					<div class="content">${post.content}</div>
-					<div class="time">${post.posted_time}</div>
+					<div class="id">投稿番号:${post.post_id}</div>
+				<c:if test="${not empty post.reply_to}">
+					<div class="reply">返信先:${post.reply_to}</div>
+				</c:if>
+				<c:if test="${empty post.reply_to}">
+					<div class="reply">${post.resNum} replies</div>
+				</c:if>
+				<c:if test="${not empty post.author}">
+					<div class="author">投稿者名:${post.author}</div>
+				</c:if>
+				<c:if test="${empty post.author}">
+					<div class="author">投稿者名:NoName</div>
+				</c:if>
+					<div class="content">投稿内容:${post.content}</div>
+					<div class="time">投稿時間:${post.posted_time}</div>
 						<c:set var="flg" value="${post.deleted}"/>	
 						<c:if test="${flg==0}">
 								<a href="Home?R=${post.post_id}" >返信を見る</a>
