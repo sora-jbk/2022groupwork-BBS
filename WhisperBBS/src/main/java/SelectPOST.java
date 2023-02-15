@@ -20,19 +20,70 @@ public class SelectPOST extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {
 		
-
-		String sql = "SELECT "
-				+ "POST_ID, "
-				+ "REPLY_TO, "
-				+ "AUTHOR, CONTENT, "
-				+ "POSTED_TIME, "
-				+ "DELETED, "
-				+ "(SELECT COUNT(*) FROM POST B WHERE A.POST_ID = B.REPLY_TO ) AS CNT "
-				+ "FROM POST A";	//SELECT文
-		ArrayList<PostBean> contents = new ArrayList<>();	//Beanを格納するためのリスト
-		
 		
 		try {
+			if(req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
+				String r = req.getParameter("R");
+				String sql = "SELECT "
+						+ "POST_ID, "
+						+ "REPLY_TO, "
+						+ "AUTHOR, "
+						+ "CONTENT, "
+						+ "POSTED_TIME, "
+						+ "DELETED "
+						+ "FROM POST "
+						+ "WHERE POST_ID=" + r;
+				System.out.println(sql);
+				//Oracleにユーザー名whiser,パスワードbbsで接続
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl"
+						,"whisper"
+						,"bbs");
+				
+				
+				
+				//sql文を実行
+				
+				PreparedStatement ps = con.prepareStatement(sql);
+				ResultSet rs = ps.executeQuery();
+				
+				rs.next();
+				
+				//PostBeanをインスタンス化
+				PostBean root = new PostBean(
+						rs.getString("POST_ID"),
+						rs.getString("REPLY_TO"),
+						rs.getString("AUTHOR"),
+						rs.getString("CONTENT"),
+						rs.getString("POSTED_TIME"),
+						rs.getString("DELETED"),
+						"NULL"
+						);
+				
+				//jspにcontentsを渡す
+				req.setAttribute("root", root);
+			}
+			
+		}catch (ClassNotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+		
+		try {
+			String sql = "SELECT "
+					+ "POST_ID, "
+					+ "REPLY_TO, "
+					+ "AUTHOR, CONTENT, "
+					+ "POSTED_TIME, "
+					+ "DELETED, "
+					+ "(SELECT COUNT(*) FROM POST B WHERE A.POST_ID = B.REPLY_TO ) AS CNT "
+					+ "FROM POST A";	//SELECT文
+			ArrayList<PostBean> contents = new ArrayList<>();	//Beanを格納するためのリスト
+			
 			//Oracleにユーザー名whiser,パスワードbbsで接続
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl"
@@ -51,6 +102,7 @@ public class SelectPOST extends HttpServlet {
 				sql = sql + " AND CONTENT LIKE '%" + req.getParameter("S") + "%'";
 			}
 			
+			System.out.println(sql);
 			//sql文を実行
 			
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -84,12 +136,6 @@ public class SelectPOST extends HttpServlet {
 			//jspにcontentsを渡す
 			req.setAttribute("contents", contents);
 			
-			//移動先をPrintに設定
-			RequestDispatcher rd = req.getRequestDispatcher("Print");
-			
-			
-			//ページを移動
-			rd.forward(req, res);
 			
 		}catch (ClassNotFoundException e) {
 			// TODO 自動生成された catch ブロック
@@ -97,13 +143,19 @@ public class SelectPOST extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
-		} catch (ServletException e) {
+		}
+		
+		try {
+			//移動先をPrintに設定
+		RequestDispatcher rd = req.getRequestDispatcher("Print");
+		//ページを移動
+		rd.forward(req, res); 
+	}	catch (ServletException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		
 	}
 }
