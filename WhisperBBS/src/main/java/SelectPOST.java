@@ -21,7 +21,14 @@ public class SelectPOST extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {
 		
 
-		String sql = "SELECT * FROM POST";	//SELECT文
+		String sql = "SELECT "
+				+ "POST_ID, "
+				+ "REPLY_TO, "
+				+ "AUTHOR, CONTENT, "
+				+ "POSTED_TIME, "
+				+ "DELETED, "
+				+ "(SELECT COUNT(*) FROM POST B WHERE A.POST_ID = B.REPLY_TO ) AS CNT "
+				+ "FROM POST A";	//SELECT文
 		ArrayList<PostBean> contents = new ArrayList<>();	//Beanを格納するためのリスト
 		
 		
@@ -60,7 +67,8 @@ public class SelectPOST extends HttpServlet {
 							rs.getString("AUTHOR"),
 							rs.getString("CONTENT").replace("\n", "<br>"),
 							rs.getString("POSTED_TIME"),
-							rs.getString("DELETED")));
+							rs.getString("DELETED"),
+							rs.getString("CNT")));
 				} else {
 					contents.add(new PostBean(
 							rs.getString("POST_ID"),
@@ -68,7 +76,8 @@ public class SelectPOST extends HttpServlet {
 							rs.getString("AUTHOR"),
 							"DELETED",
 							rs.getString("POSTED_TIME"),
-							rs.getString("DELETED")));
+							rs.getString("DELETED"),
+							rs.getString("CNT")));
 				}
 			}
 			

@@ -7,6 +7,7 @@ public class PostBean {
 	private String content;
 	private String posted_time;
 	private String deleted;
+	private String resNum;
 	
 //	コンストラクタ
 	public PostBean(String post_id, 
@@ -14,7 +15,8 @@ public class PostBean {
 			String author, 
 			String content, 
 			String posted_time,
-			String deleted) {
+			String deleted,
+			String resNum) {
 		
 		this.post_id = post_id;
 		this.reply_to = reply_to;
@@ -22,6 +24,7 @@ public class PostBean {
 		this.content = content;
 		this.posted_time = posted_time;
 		this.deleted = deleted;
+		this.resNum = resNum;
 		
 	}
 	
@@ -42,6 +45,9 @@ public class PostBean {
 	}
 	public String getDeleted() {
 		return deleted;
+	}
+	public String getResNum() {
+		return resNum;
 	}
 
 }
