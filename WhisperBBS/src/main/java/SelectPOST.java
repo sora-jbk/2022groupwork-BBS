@@ -102,6 +102,8 @@ public class SelectPOST extends HttpServlet {
 				sql = sql + " AND CONTENT LIKE '%" + req.getParameter("S") + "%'";
 			}
 			
+			sql = sql + " 	ORDER BY POST_ID DESC";
+			
 			System.out.println(sql);
 			//sql文を実行
 			
