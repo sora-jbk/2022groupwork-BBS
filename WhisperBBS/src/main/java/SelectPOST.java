@@ -29,7 +29,7 @@ public class SelectPOST extends HttpServlet {
 						+ "REPLY_TO, "
 						+ "AUTHOR, "
 						+ "CONTENT, "
-						+ "TOCHAR(POSTED_TIME,'YYYY-MM-DD hh-mm-ss'), "
+						+ "TO_CHAR(POSTED_TIME,'YYYY-MM-DD HH:MI:SS') AS TIME, "
 						+ "DELETED "
 						+ "FROM POST "
 						+ "WHERE POST_ID=" + r;
@@ -55,7 +55,7 @@ public class SelectPOST extends HttpServlet {
 						rs.getString("REPLY_TO"),
 						rs.getString("AUTHOR"),
 						rs.getString("CONTENT"),
-						rs.getString("POSTED_TIME"),
+						rs.getString("TIME"),
 						rs.getString("DELETED"),
 						"NULL"
 						);
@@ -78,7 +78,7 @@ public class SelectPOST extends HttpServlet {
 					+ "POST_ID, "
 					+ "REPLY_TO, "
 					+ "AUTHOR, CONTENT, "
-					+ "POSTED_TIME, "
+					+ "TO_CHAR(POSTED_TIME,'YYYY-MM-DD HH:MI:SS') AS TIME, "
 					+ "DELETED, "
 					+ "(SELECT COUNT(*) FROM POST B WHERE A.POST_ID = B.REPLY_TO ) AS CNT "
 					+ "FROM POST A";	//SELECT文
@@ -120,7 +120,7 @@ public class SelectPOST extends HttpServlet {
 							rs.getString("REPLY_TO"),
 							rs.getString("AUTHOR"),
 							rs.getString("CONTENT").replace("\n", "<br>"),
-							rs.getString("POSTED_TIME"),
+							rs.getString("TIME"),
 							rs.getString("DELETED"),
 							rs.getString("CNT")));
 				} else {
@@ -129,7 +129,7 @@ public class SelectPOST extends HttpServlet {
 							rs.getString("REPLY_TO"),
 							rs.getString("AUTHOR"),
 							"DELETED",
-							rs.getString("POSTED_TIME"),
+							rs.getString("TIME"),
 							rs.getString("DELETED"),
 							rs.getString("CNT")));
 				}
