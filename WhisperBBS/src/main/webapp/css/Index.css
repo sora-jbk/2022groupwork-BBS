@@ -3,7 +3,7 @@ head {
 	font-size: 100%;
 }
 .Post {
-	background-color: black;
+	background-color: #839a96;
 }
 Index {
 	width: 500px;
@@ -12,3 +12,15 @@ Index {
 	background-color: black;
 }
 
+.logo{
+	width:150px;
+}
+
+
+.item{
+	border:1px solid;
+	border-radius:4px;
+	padding:2em;
+	margin:1em;
+	background-color:#e5e8e9;
+}

@@ -29,7 +29,7 @@ public class SelectPOST extends HttpServlet {
 						+ "REPLY_TO, "
 						+ "AUTHOR, "
 						+ "CONTENT, "
-						+ "POSTED_TIME, "
+						+ "TOCHAR(POSTED_TIME,'YYYY-MM-DD hh-mm-ss'), "
 						+ "DELETED "
 						+ "FROM POST "
 						+ "WHERE POST_ID=" + r;
