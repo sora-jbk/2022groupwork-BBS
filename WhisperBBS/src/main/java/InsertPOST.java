@@ -27,7 +27,7 @@ public class InsertPOST extends HttpServlet {
 		
 		//nameが空のとき"null"に置き換え
 		if(name == null || name.isEmpty()) {
-			name = "null";
+			name = "";
 		}
 		if(content == null || content.isEmpty()) {
 			name = "null";

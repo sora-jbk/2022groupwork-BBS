@@ -24,34 +24,37 @@
 				</div>
 			</c:if>
 			<c:forEach var="post" items="${contents}"><%--var=itemから取り出した要素を変数に格納する item=ループする配列 --%>
-				<div class="item">
-					<div class="id">投稿番号:${post.post_id}</div>
-					<c:if test="${not empty post.reply_to}">
-						<div class="reply">返信先:${post.reply_to}</div>
-					</c:if>
-					<c:if test="${empty post.reply_to}">
-						<div class="reply">${post.resNum} replies</div>
-					</c:if>
-					
-					<c:if test="${not empty post.author}">
-						<div class="author">投稿者名:${post.author}</div>
-					</c:if>
-					<c:if test="${empty post.author}">
-						<div class="author">投稿者名:NoName</div>
-					</c:if>
-					
-					<div class="content">投稿内容:${post.content}</div>
+				<c:set var="flg" value="${post.deleted}"/>	
+				<c:if test="${flg==0}">
+					<div class="item">
+						<div class="id">投稿番号:${post.post_id}</div>
+						
+						<c:if test="${empty post.reply_to}">
+							<div class="reply">${post.resNum} replies</div>
+						</c:if>
+						<c:if test="${not empty post.reply_to}">
+							<div class="reply">返信先:${post.reply_to}</div>
+						</c:if>
+						
+						<c:if test="${not empty post.author}">
+							<div class="author">投稿者名:${post.author}</div>
+						</c:if>
+						<c:if test="${empty post.author}">
+							<div class="author">投稿者名:NoName</div>
+						</c:if>
+						
+						
+						<div class="content">投稿内容:${post.content}</div>
+						
 						<div class="time">投稿時間:${post.posted_time}</div>
-							<c:set var="flg" value="${post.deleted}"/>	
-							<c:if test="${flg==0}">
-									<a href="Home?R=${post.post_id}" >返信を見る</a>
-								<form method="post" action="Delete">
-									<input type="hidden" name="D" value="${post.post_id}">
-									<input type="submit" value="削除">
-								</form>
-							</c:if>
-						</div>
-				</div>
+						
+								<a href="Home?R=${post.post_id}" >返信を見る</a>
+							<form method="post" action="Delete">
+								<input type="hidden" name="D" value="${post.post_id}">
+								<input type="submit" value="削除">
+							</form>
+					</div>
+				</c:if>
 			</c:forEach>
 		</div>
 		<div class="Post">

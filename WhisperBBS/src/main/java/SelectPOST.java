@@ -20,20 +20,22 @@ public class SelectPOST extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {
 		
-		
-		try {
-			if(req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
+//		初期ページには親コンテンツがないので、スレッドタイトルは要らない
+		if(req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
+			try {
 				String r = req.getParameter("R");
 				String sql = "SELECT "
 						+ "POST_ID, "
 						+ "REPLY_TO, "
 						+ "AUTHOR, "
 						+ "CONTENT, "
+//						TO_CHAR関数があるので*は使えない
 						+ "TO_CHAR(POSTED_TIME,'YYYY-MM-DD HH:MI:SS') AS TIME, "
 						+ "DELETED "
 						+ "FROM POST "
 						+ "WHERE POST_ID=" + r;
 				System.out.println(sql);
+				
 				//Oracleにユーザー名whiser,パスワードbbsで接続
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl"
@@ -45,7 +47,10 @@ public class SelectPOST extends HttpServlet {
 				//sql文を実行
 				
 				PreparedStatement ps = con.prepareStatement(sql);
+				
+//				結果が必要だからexecuteQuery()を使用
 				ResultSet rs = ps.executeQuery();
+				
 				
 				rs.next();
 				
@@ -57,19 +62,19 @@ public class SelectPOST extends HttpServlet {
 						rs.getString("CONTENT"),
 						rs.getString("TIME"),
 						rs.getString("DELETED"),
-						"NULL"
+						"NULL" //スレッドタイトルに返信数はいらないので"NULL"を指定
 						);
 				
 				//jspにcontentsを渡す
 				req.setAttribute("root", root);
-			}
 			
-		}catch (ClassNotFoundException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
+			}catch (ClassNotFoundException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 		}
 
 		
@@ -92,7 +97,7 @@ public class SelectPOST extends HttpServlet {
 			
 			
 			//パラメータ"R"がnullでなければWHERE句を追加
-			if((req.getParameter("R") != null && !req.getParameter("R").isEmpty()) && !req.getParameter("R").toUpperCase().equals("NULL")) {
+			if((req.getParameter("R") != null && !req.getParameter("R").isEmpty())) {
 				sql = sql + " WHERE REPLY_TO='" + req.getParameter("R") +"'";
 			}else {
 				sql = sql + " WHERE REPLY_TO IS NULL";
