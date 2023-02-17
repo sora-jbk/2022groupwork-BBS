@@ -26,7 +26,7 @@
 			</c:if>
 			<c:forEach var="post" items="${contents}"><%--var=itemから取り出した要素を変数に格納する item=ループする配列 --%>
 					<div class="item">
-						<div class="id">投稿番号:${post.post_id}</div>
+						<div class="id">${post.post_id}</div>
 						
 						<c:if test="${empty post.reply_to}">
 							<div class="reply">${post.resNum} replies</div>
