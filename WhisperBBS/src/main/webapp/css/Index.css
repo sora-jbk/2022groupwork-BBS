@@ -40,6 +40,14 @@ Index {
 	padding:2em;
 	margin:1em;
 	background-color:#e5e8e9;
+    position:relative;
+}
+
+.time{
+ color:#777;
+ position:absolute;
+ top:0;
+ right:1rem;
 }
 .deleted{
 	top:0;

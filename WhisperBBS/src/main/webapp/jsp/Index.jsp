@@ -47,7 +47,7 @@
 						<c:if test="${flg==0}">
 							<div class="content">投稿内容:${post.content}</div>
 							
-							<div class="time">投稿時間:${post.posted_time}</div>
+							<div class="time">${post.posted_time}</div>
 						
 							<a href="Home?R=${post.post_id}"  class="link"></a>
 						</c:if>
