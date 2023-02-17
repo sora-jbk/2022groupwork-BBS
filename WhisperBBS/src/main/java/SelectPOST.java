@@ -83,7 +83,7 @@ public class SelectPOST extends HttpServlet {
 					+ "POST_ID, "
 					+ "REPLY_TO, "
 					+ "AUTHOR, CONTENT, "
-					+ "TO_CHAR(POSTED_TIME,'YYYY-MM-DD HH:MI:SS') AS TIME, "
+					+ "TO_CHAR(POSTED_TIME,'YYYY-MM-DD HH24:MI:SS') AS TIME, "
 					+ "DELETED, "
 					+ "(SELECT COUNT(*) FROM POST B WHERE A.POST_ID = B.REPLY_TO ) AS CNT "
 					+ "FROM POST A";	//SELECT文
