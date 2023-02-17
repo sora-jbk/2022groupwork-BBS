@@ -7,12 +7,19 @@ body{
 }
 
 .Post {
-	background-color: #839a96;
-	display:flex;
-	position: relative;
-	top:0;
-	left:0;
-	flex-direction: column;
+	border:1px solid;
+	border-radius:4px;
+	padding:1em;
+	margin:1em;
+	background-color:#e5e8e9;
+}
+.box{
+    margin:0;
+}
+
+textarea {
+  resize: none; /* 手動リサイズを禁止 */
+  width: 100%;
 }
 
 .header{
@@ -43,6 +50,20 @@ Index {
     position:relative;
 }
 
+
+.id{
+    margin-right:1rem;
+}
+.author{
+   margin-right:1rem;
+}
+.info{
+    display:flex;
+    position:absolute;
+    top:0;
+    left:1rem;
+}
+
 .time{
  color:#777;
  position:absolute;
@@ -63,6 +84,17 @@ Index {
 	font-size:3rem;
 	color:white;
 }
+
+.content{
+    border:1px #000 solid;
+    width:100%;
+    margin-top: 1rem;
+    padding:0.5rem;
+    background-color:#f0f0f0;
+    border-radius:0.25rem;
+    
+}
+
 .link{
 		top:0;
 	left:0;
@@ -71,9 +103,6 @@ Index {
 	height:100%;
 	transition: background-color 0.3s;
     opacity:30%;
-}
-.item{
-	position:relative;
 }
 .link:hover{
 	background-color:aliceblue;
