@@ -2,9 +2,26 @@
 head {
 	font-size: 100%;
 }
+body{
+ position:relative;
+}
+
 .Post {
 	background-color: #839a96;
+	display:flex;
+	position: relative;
+	top:0;
+	left:0;
+	flex-direction: column;
 }
+
+.header{
+ border-bottom:#999 solid 2px;
+ display:flex;
+ width:100vw;
+}
+
+
 Index {
 	width: 500px;
 	margin: 100px;
@@ -13,7 +30,7 @@ Index {
 }
 
 .logo{
-	width:150px;
+	width:70px;
 }
 
 
@@ -23,4 +40,67 @@ Index {
 	padding:2em;
 	margin:1em;
 	background-color:#e5e8e9;
+}
+.deleted{
+	top:0;
+	left:0;
+	position:absolute;
+	width:100%;
+	height:100%;
+	background: #000000;
+	opacity:30%;
+}
+.deleted h1{
+	text-align:center;
+	font-size:3rem;
+	color:white;
+}
+.link{
+		top:0;
+	left:0;
+	position:absolute;
+	width:100%;
+	height:100%;
+	transition: background-color 0.3s;
+    opacity:30%;
+}
+.item{
+	position:relative;
+}
+.link:hover{
+	background-color:aliceblue;
+}
+
+
+
+/*========= 検索窓のためのCSS ===============*/
+
+/*検索窓のエリア*/
+ #search-wrap {
+     position: absolute;/*絶対配置にして*/
+	 z-index: 2;/*最前面に設定。数字は変更可*/
+	 top:10px;
+	 right:10px;
+     width:100%;
+}
+
+/*テキスト入力input設定*/
+ #search-text{
+	-webkit-appearance:none;/*SafariやChromeのデフォルトの設定を無効*/
+	width: 60px;/*テキスト入力エリアが伸びる前の横幅*/
+	height: 60px;
+    padding: 20px;
+	border: none;
+	background:#fff url("https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/7-2-1/img/icon_search.svg") no-repeat 17px center;/*虫眼鏡アイコンを背景に表示*/
+	background-size: 25px 25px;
+	transition: all 0.5s;/*transitionを使ってスムースに伸ばす*/
+	outline: none;
+	cursor: pointer;/*カーソルを指マークに*/
+}
+
+/*テキスト入力inputにフォーカスした時の形状*/
+ #search-text:focus {
+	width: 250px;/*テキスト入力エリアが伸びる後の横幅*/
+	padding: 20px 0 20px 60px;
+	box-shadow: 0 2px rgba(6,0,1,.26);
 }
