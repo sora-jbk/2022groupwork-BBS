@@ -17,9 +17,13 @@ body{
     margin:0;
 }
 
-textarea {
+textarea{
   resize: none; /* 手動リサイズを禁止 */
   width: 100%;
+  border:none;
+  border-bottom:#222 solid 2px;
+  margin-top:1rem;
+  margin-bottom:1rem;
 }
 
 .header{
@@ -105,7 +109,7 @@ Index {
     opacity:30%;
 }
 .link:hover{
-	background-color:aliceblue;
+	background-color:rgb(192, 192, 192);
 }
 
 
