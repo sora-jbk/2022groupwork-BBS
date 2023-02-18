@@ -20,7 +20,8 @@
 			</div>
 		</div>
 		<div class="Index">
-			<c:if test="${empty R }">
+			<c:set var="Rempty" value="<%=request.getParameter(\"R\")%>" />
+			<c:if test="${not empty Rempty}">
 				<div class="thread_title">
 					<div class="title">${root.content }</div>
 				</div>
