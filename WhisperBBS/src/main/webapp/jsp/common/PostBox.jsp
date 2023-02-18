@@ -7,5 +7,5 @@
 		<input type="hidden" name="R" value="<%=request.getParameter("R") %>">
 		<input type="text" name="name" placeholder="NAME"><br><%--単一行のテキスト入力欄 1行を超えると消えちゃう --%>
 		<textarea type="text" name="content" class="coment" placeholder="COMMENT" maxlength="240" width="100%" required></textarea><br><%--複数行入力できる->textarea --%>
-		<input type="submit" value="投稿">
+		<input type="submit" value="投稿" class="postBtn">
 	</from>
