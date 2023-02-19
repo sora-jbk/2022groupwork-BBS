@@ -4,21 +4,33 @@ head {
 }
 body{
  position:relative;
+ width:auto;
 }
 
 .Post {
-	background-color: #839a96;
-	display:flex;
-	position: relative;
-	top:0;
-	left:0;
-	flex-direction: column;
+	border:1px solid;
+	border-radius:4px;
+	padding:1em;
+	margin:1em;
+	background-color:#e5e8e9;
+}
+.box{
+    margin:0;
+}
+
+textarea{
+  resize: none; /* 手動リサイズを禁止 */
+  width: 100%;
+  border:none;
+  border-bottom:#222 solid 2px;
+  margin-top:1rem;
+  margin-bottom:1rem;
 }
 
 .header{
  border-bottom:#999 solid 2px;
  display:flex;
- width:100vw;
+ width:100%;
 }
 
 
@@ -33,13 +45,46 @@ Index {
 	width:70px;
 }
 
+.postBtn{
+    width:4rem;
+    height:2rem;
+    border-radius:1rem;
+    border:solid 1px;
+    background-color:#d3dbe9;
+    font-size:1.025rem;
+    transition:0.3s;
+}
+.postbtn:hover{
+    background-color:#91a8bb;
+}
+
 
 .item{
-	border:1px solid;
-	border-radius:4px;
+	border-bottom:1px solid;
 	padding:2em;
-	margin:1em;
-	background-color:#e5e8e9;
+	background-color:#fbfbfb;
+    position:relative;
+}
+
+
+.id{
+    margin-right:1rem;
+}
+.author{
+   margin-right:1rem;
+}
+.info{
+    display:flex;
+    position:absolute;
+    top:0;
+    left:1rem;
+}
+
+.time{
+ color:#777;
+ position:absolute;
+ top:0;
+ right:1rem;
 }
 .deleted{
 	top:0;
@@ -55,6 +100,17 @@ Index {
 	font-size:3rem;
 	color:white;
 }
+
+.content{
+    border:1px #000 solid;
+    width:100%;
+    margin-top: 1rem;
+    padding:0.5rem;
+    background-color:#f0f0f0;
+    border-radius:0.25rem;
+    
+}
+
 .link{
 		top:0;
 	left:0;
@@ -64,11 +120,8 @@ Index {
 	transition: background-color 0.3s;
     opacity:30%;
 }
-.item{
-	position:relative;
-}
 .link:hover{
-	background-color:aliceblue;
+	background-color:rgb(192, 192, 192);
 }
 
 
