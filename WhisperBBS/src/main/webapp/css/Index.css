@@ -26,6 +26,12 @@ textarea{
   margin-top:1rem;
   margin-bottom:1rem;
 }
+.name{
+  padding:0.15rem;
+}
+.coment{
+  padding:0.15rem;
+}
 
 .header{
  border-bottom:#999 solid 2px;
