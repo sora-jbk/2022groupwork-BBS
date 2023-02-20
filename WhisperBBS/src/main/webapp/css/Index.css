@@ -114,7 +114,8 @@ Index {
     padding:0.5rem;
     background-color:#f0f0f0;
     border-radius:0.25rem;
-    
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .link{

@@ -39,6 +39,7 @@
 							<c:if test="${empty post.author}">
 								<p class="author">NoName</p>
 							</c:if>
+							
 							<c:if test="${empty post.reply_to}">
 								<p class="reply">${post.resNum} replies</p>
 							</c:if>
