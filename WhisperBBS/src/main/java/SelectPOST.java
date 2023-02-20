@@ -124,7 +124,7 @@ public class SelectPOST extends HttpServlet {
 							rs.getString("POST_ID"),
 							rs.getString("REPLY_TO"),
 							rs.getString("AUTHOR"),
-							rs.getString("CONTENT").replace("\n", "<br>"),
+							rs.getString("CONTENT"),
 							rs.getString("TIME"),
 							rs.getString("DELETED"),
 							rs.getString("CNT")));
