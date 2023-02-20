@@ -98,7 +98,7 @@ public class SelectPOST extends HttpServlet {
 			
 			
 			//パラメータ"R"がnullでなければWHERE句を追加
-			if (req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
+			if (req.getParameter("R") != null && !req.getParameter("R").isEmpty() && !req.getParameter("R").equals("null")) {
 				sql = sql + " WHERE REPLY_TO=?";
 			}else {
 				sql = sql + " WHERE REPLY_TO IS NULL";
@@ -116,7 +116,7 @@ public class SelectPOST extends HttpServlet {
 			
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			if (req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
+			if (req.getParameter("R") != null && !req.getParameter("R").isEmpty() && !req.getParameter("R").equals("null")) {
 				ps.setString(counter, req.getParameter("R"));
 				counter++;
 			}
