@@ -53,4 +53,15 @@
   	<servlet-name>PostBoxjsp</servlet-name>
   	<url-pattern>/Post</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>ErrorJsp</servlet-name>
+  	<jsp-file>/jsp/error/Error.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ErrorJsp</servlet-name>
+  	<url-pattern>/Error</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
