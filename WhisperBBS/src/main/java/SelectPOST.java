@@ -33,7 +33,7 @@ public class SelectPOST extends HttpServlet {
 						+ "TO_CHAR(POSTED_TIME,'YYYY-MM-DD HH:MI:SS') AS TIME, "
 						+ "DELETED "
 						+ "FROM POST "
-						+ "WHERE POST_ID=" + r;
+						+ "WHERE POST_ID=?";
 				System.out.println(sql);
 				
 				//Oracleにユーザー名whiser,パスワードbbsで接続
@@ -48,6 +48,7 @@ public class SelectPOST extends HttpServlet {
 				
 				PreparedStatement ps = con.prepareStatement(sql);
 				
+				ps.setString(1, r);
 //				結果が必要だからexecuteQuery()を使用
 				ResultSet rs = ps.executeQuery();
 				
@@ -98,13 +99,13 @@ public class SelectPOST extends HttpServlet {
 			
 			//パラメータ"R"がnullでなければWHERE句を追加
 			if((req.getParameter("R") != null && !req.getParameter("R").isEmpty())) {
-				sql = sql + " WHERE REPLY_TO='" + req.getParameter("R") +"'";
+				sql = sql + " WHERE REPLY_TO='?'";
 			}else {
 				sql = sql + " WHERE REPLY_TO IS NULL";
 			}
 			
 			if (req.getParameter("S") != null && !req.getParameter("S").isEmpty()) {
-				sql = sql + " AND CONTENT LIKE '%" + req.getParameter("S") + "%'";
+				sql = sql + " AND CONTENT LIKE '?'";
 			}
 			
 			sql = sql + " 	ORDER BY POST_ID DESC";
@@ -113,6 +114,16 @@ public class SelectPOST extends HttpServlet {
 			//sql文を実行
 			
 			PreparedStatement ps = con.prepareStatement(sql);
+			
+			if (req.getParameter("S") != null && !req.getParameter("S").isEmpty()) {
+				if((req.getParameter("R") != null && !req.getParameter("R").isEmpty())) {
+					ps.setString(1, req.getParameter("R"));
+					ps.setString(2, "%" + req.getParameter("S") + "%");
+				} else {
+					ps.setString(1, "%" + req.getParameter("S") + "%");
+				}
+			}
+			
 			ResultSet rs = ps.executeQuery();
 			
 			
