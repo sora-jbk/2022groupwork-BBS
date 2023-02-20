@@ -12,7 +12,7 @@ public class InsertPOST extends HttpServlet {
 	
 //	doPostメソッドをオーバーライド
 	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse res) {
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		
 		//パラメータnameを取得
 		String name = req.getParameter("name");
@@ -61,6 +61,7 @@ public class InsertPOST extends HttpServlet {
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
+			res.sendRedirect("/Error");
 		}
 		
 		try {

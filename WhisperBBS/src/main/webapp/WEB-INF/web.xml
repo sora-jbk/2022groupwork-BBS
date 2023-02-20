@@ -76,4 +76,9 @@
   	<error-code>404</error-code>
   	<location>/ErrorServlet</location>
   </error-page>
+  
+  <error-page>
+  	<exception-type>java.sql.SQLException</exception-type>
+  	<location>/ErrorServlet</location>
+  </error-page>
 </web-app>
