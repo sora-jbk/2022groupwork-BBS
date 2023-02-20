@@ -16,6 +16,7 @@
 			<div class="title search-wrap">
 				<form role="search" method="get" action="Home" class="search_container">
 				  	<input type="text" size="25" name="S" id="search-text">
+				  	<input type="hidden" name="R" value="<%=request.getParameter("R") %>">
 				</form>
 			</div>
 		</div>
@@ -39,12 +40,8 @@
 							<c:if test="${empty post.author}">
 								<p class="author">NoName</p>
 							</c:if>
-							<c:if test="${empty post.reply_to}">
-								<p class="reply">${post.resNum} replies</p>
-							</c:if>
-							<c:if test="${not empty post.reply_to}">
-								<p class="reply">返信先:${post.reply_to}</p>
-							</c:if>
+							<p class="reply">${post.resNum} replies</p>
+														
 						</div>
 							
 						

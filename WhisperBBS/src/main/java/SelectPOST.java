@@ -98,34 +98,33 @@ public class SelectPOST extends HttpServlet {
 			
 			
 			//パラメータ"R"がnullでなければWHERE句を追加
-			if((req.getParameter("R") != null && !req.getParameter("R").isEmpty())) {
-				sql = sql + " WHERE REPLY_TO='?'";
+			if (req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
+				sql = sql + " WHERE REPLY_TO=?";
 			}else {
 				sql = sql + " WHERE REPLY_TO IS NULL";
 			}
 			
 			if (req.getParameter("S") != null && !req.getParameter("S").isEmpty()) {
-				sql = sql + " AND CONTENT LIKE '?'";
+				sql = sql + " AND CONTENT LIKE ?";
 			}
 			
 			sql = sql + " 	ORDER BY POST_ID DESC";
 			
 			System.out.println(sql);
 			//sql文を実行
+			int counter = 1;
 			
 			PreparedStatement ps = con.prepareStatement(sql);
-			
+
+			if (req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
+				ps.setString(counter, req.getParameter("R"));
+				counter++;
+			}
 			if (req.getParameter("S") != null && !req.getParameter("S").isEmpty()) {
-				if((req.getParameter("R") != null && !req.getParameter("R").isEmpty())) {
-					ps.setString(1, req.getParameter("R"));
-					ps.setString(2, "%" + req.getParameter("S") + "%");
-				} else {
-					ps.setString(1, "%" + req.getParameter("S") + "%");
-				}
+				ps.setString(counter, "%" + req.getParameter("S") + "%");
 			}
 			
 			ResultSet rs = ps.executeQuery();
-			
 			
 			
 			//PostBeanをインスタンス化し、contentsに格納
