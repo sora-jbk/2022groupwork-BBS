@@ -34,13 +34,7 @@
 					<div class="item">
 						<div class="info">
 							<p class="id">${post.post_id}</p>
-							<c:if test="${not empty post.author}">
-								<p class="author">${post.author}</p>
-							</c:if>
-							<c:if test="${empty post.author}">
-								<p class="author">NoName</p>
-							</c:if>
-
+							<p class="author">${post.author}</p>
 							<p class="reply">${post.resNum} replies</p>
 
 						</div>
