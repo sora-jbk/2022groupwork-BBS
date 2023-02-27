@@ -27,7 +27,7 @@ public class SelectPOST extends HttpServlet {
 				String sql = "SELECT "
 						+ "POST_ID, "
 						+ "REPLY_TO, "
-						+ "NVL(AUTHOR,'NO_NAME'), "
+						+ "NVL(AUTHOR,'NO_NAME') AS AUTHOR, "
 						+ "CONTENT, "
 //						TO_CHAR関数があるので*は使えない
 						+ "TO_CHAR(POSTED_TIME,'YYYY-MM-DD HH:MI:SS') AS TIME, "
@@ -83,7 +83,8 @@ public class SelectPOST extends HttpServlet {
 			String sql = "SELECT "
 					+ "POST_ID, "
 					+ "REPLY_TO, "
-					+ "AUTHOR, CONTENT, "
+					+ "NVL(AUTHOR,'NO_NAME') AS AUTHOR, "
+					+ "CONTENT, "
 					+ "TO_CHAR(POSTED_TIME,'YYYY-MM-DD HH24:MI:SS') AS TIME, "
 					+ "DELETED, "
 					+ "(SELECT COUNT(*) FROM POST B WHERE A.POST_ID = B.REPLY_TO ) AS CNT "
