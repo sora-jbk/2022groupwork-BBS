@@ -27,7 +27,7 @@ public class SelectPOST extends HttpServlet {
 				String sql = "SELECT "
 						+ "POST_ID, "
 						+ "REPLY_TO, "
-						+ "AUTHOR, "
+						+ "NVL(AUTHOR,'NO_NAME'), "
 						+ "CONTENT, "
 //						TO_CHAR関数があるので*は使えない
 						+ "TO_CHAR(POSTED_TIME,'YYYY-MM-DD HH:MI:SS') AS TIME, "
