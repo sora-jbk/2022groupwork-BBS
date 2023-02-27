@@ -20,8 +20,24 @@ public class PostBean {
 		
 		this.post_id = post_id;
 		this.reply_to = reply_to;
-		this.author = author;
-		this.content = content;
+		if(author != null) {
+			this.author = author
+					.replace("&", "&amp;")
+					.replace("<", "&lt;")
+					.replace(">", "&gt;")
+					.replace(" ", "&nbsp;")
+					.replaceAll("\"", "&quot;")
+					.replace("'", "&#39;");
+		}
+		if(content != null) {
+			this.content = content
+					.replace("&", "&amp;")
+					.replace("<", "&lt;")
+					.replace(">", "&gt;")
+					.replace(" ", "&nbsp;")
+					.replaceAll("\"", "&quot;")
+					.replace("'", "&#39;");
+		}
 		this.posted_time = posted_time;
 		this.deleted = deleted;
 		this.resNum = resNum;

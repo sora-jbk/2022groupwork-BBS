@@ -8,7 +8,6 @@
 		<link rel="stylesheet" href="<%=request.getContextPath() %>\css\Index.css">
 		<%--javaのメソッドを呼び出してくる<%= %> --%>
 		<title>WhiperBBS</title>
-		<script src="<%=request.getContextPath()%>/js/Index.js"></script>
 	</head>
 	<body>	
 		<div class="header">
@@ -56,5 +55,6 @@
 					</div>
 			</c:forEach>
 		</div>
+		<script src="<%=request.getContextPath()%>/js/Index.js"></script>
 	</body>
 </html>
