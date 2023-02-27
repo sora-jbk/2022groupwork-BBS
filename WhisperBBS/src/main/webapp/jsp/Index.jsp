@@ -8,7 +8,6 @@
 		<link rel="stylesheet" href="<%=request.getContextPath() %>\css\Index.css">
 		<%--javaのメソッドを呼び出してくる<%= %> --%>
 		<title>WhiperBBS</title>
-		<script src="<%=request.getContextPath()%>/js/Index.js"></script>
 	</head>
 	<body>	
 		<div class="header">
@@ -33,7 +32,7 @@
 			<c:forEach var="post" items="${contents}"><%--var=itemから取り出した要素を変数に格納する item=ループする配列 --%>
 					<div class="item">
 						<div class="info">
-							<p class="id">${post.post_id}</p>
+							<p class="id" id="id">${post.post_id}</p>
 							<c:if test="${not empty post.author}">
 								<p class="author">${post.author}</p>
 							</c:if>
@@ -62,5 +61,6 @@
 					</div>
 			</c:forEach>
 		</div>
+		<script src="<%=request.getContextPath()%>/js/Index.js"></script>
 	</body>
 </html>
