@@ -12,7 +12,7 @@
 	<body>	
 		<div class="header">
 			<a href="http://localhost:8080/WhisperBBS/Home"><img src="<%=request.getContextPath() %>\images\whispericon.JPG" class="logo"></a><%--ホーム画面に戻る --%>
-			<div class="title search-wrap">
+			<div class="search-wrap">
 				<form role="search" method="get" action="Home" class="search_container">
 				  	<input type="text" size="25" name="S" id="search-text">
 				  	<input type="hidden" name="R" value="<%=request.getParameter("R") %>">
