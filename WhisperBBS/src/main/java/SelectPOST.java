@@ -35,7 +35,7 @@ public class SelectPOST extends HttpServlet {
 						+ "WHERE POST_ID=?";
 				System.out.println(sql);
 
-				// Oracleにユーザー名whiser,パスワードbbsで接続
+				// Oracleにユーザー名whisper,パスワードbbsで接続
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl"
 						, "whisper"
@@ -83,7 +83,7 @@ public class SelectPOST extends HttpServlet {
 					+ "FROM POST A";    // SELECT文
 			ArrayList<PostBean> contents = new ArrayList<>();    // Beanを格納するためのリスト
 
-			// Oracleにユーザー名whiser,パスワードbbsで接続
+			// Oracleにユーザー名whisper,パスワードbbsで接続
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl"
 					, "whisper"
