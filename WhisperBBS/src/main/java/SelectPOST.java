@@ -65,10 +65,8 @@ public class SelectPOST extends HttpServlet {
 				// jspにcontentsを渡す
 				req.setAttribute("root", root);
 			} catch (ClassNotFoundException e) {
-				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO 自動生成された catch ブロック
 				e.printStackTrace();
 			}
 		}
@@ -146,10 +144,8 @@ public class SelectPOST extends HttpServlet {
 			// jspにcontentsを渡す
 			req.setAttribute("contents", contents);
 		} catch (ClassNotFoundException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 
@@ -159,10 +155,8 @@ public class SelectPOST extends HttpServlet {
 			// ページを移動
 			rd.forward(req, res);
 		} catch (ServletException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	}

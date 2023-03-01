@@ -32,14 +32,12 @@ public class DeletePOST extends HttpServlet {
 			// DBをコミット
 			con.commit();
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 
 		try {
 			res.sendRedirect("Home");
 		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	}

@@ -56,7 +56,6 @@ public class InsertPOST extends HttpServlet {
 			// DBをコミット
 			con.commit();
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 			res.sendRedirect("/Error");
 		}
@@ -65,7 +64,6 @@ public class InsertPOST extends HttpServlet {
 			// Homeに画面を遷移
 			res.sendRedirect("Home?R=" + reply);
 		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 	}
