@@ -7,7 +7,7 @@
 		<link rel="shortcut icon" href="<%=request.getContextPath() %>\images\whispericon.JPG">
 		<link rel="stylesheet" href="<%=request.getContextPath() %>\css\Index.css">
 		<%-- javaのメソッドを呼び出してくる<%= %> --%>
-		<title>WhiperBBS</title>
+		<title>WhisperBBS</title>
 	</head>
 	<body>
 		<div class="header">
