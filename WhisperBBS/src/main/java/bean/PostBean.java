@@ -20,24 +20,8 @@ public class PostBean {
 					String resNum) {
 		this.postId = postId;
 		this.replyTo = replyTo;
-		if (author != null) {
-			this.author = author
-					.replace("&", "&amp;")
-					.replace("<", "&lt;")
-					.replace(">", "&gt;")
-					.replace(" ", "&nbsp;")
-					.replaceAll("\"", "&quot;")
-					.replace("'", "&#39;");
-		}
-		if (content != null) {
-			this.content = content
-					.replace("&", "&amp;")
-					.replace("<", "&lt;")
-					.replace(">", "&gt;")
-					.replace(" ", "&nbsp;")
-					.replaceAll("\"", "&quot;")
-					.replace("'", "&#39;");
-		}
+		this.author = escapeHtml(author);
+		this.content = escapeHtml(content);
 		this.postedTime = postedTime;
 		this.deleted = deleted;
 		this.resNum = resNum;
@@ -69,5 +53,18 @@ public class PostBean {
 
 	public String getResNum() {
 		return resNum;
+	}
+
+	private String escapeHtml(String s) {
+		if (s == null) {
+			return null;
+		}
+
+		return s.replace("&", "&amp;")
+				.replace("<", "&lt;")
+				.replace(">", "&gt;")
+				.replace(" ", "&nbsp;")
+				.replaceAll("\"", "&quot;")
+				.replace("'", "&#39;");
 	}
 }
