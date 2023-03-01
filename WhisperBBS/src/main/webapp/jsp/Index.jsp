@@ -32,7 +32,7 @@
 			<c:forEach var="post" items="${contents}"><%-- var=itemから取り出した要素を変数に格納する item=ループする配列 --%>
 				<div class="item">
 					<div class="info">
-						<p class="id">${post.post_id}</p>
+						<p class="id">${post.postId}</p>
 						<p class="author">${post.author}</p>
 						<p class="reply">${post.resNum} replies</p>
 					</div>
@@ -41,9 +41,9 @@
 					<c:if test="${flg==0}">
 						<div class="content">${post.content}</div>
 
-						<div class="time">${post.posted_time}</div>
+						<div class="time">${post.postedTime}</div>
 
-						<a href="Home?R=${post.post_id}" class="link"></a>
+						<a href="Home?R=${post.postId}" class="link"></a>
 					</c:if>
 					<c:if test="${flg==1}">
 						<a class="deleted"><h1>DELETED</h1></a>

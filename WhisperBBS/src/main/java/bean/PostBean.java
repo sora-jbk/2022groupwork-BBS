@@ -2,24 +2,24 @@ package bean;
 
 public class PostBean {
 
-	private String post_id;
-	private String reply_to;
+	private String postId;
+	private String replyTo;
 	private String author;
 	private String content;
-	private String posted_time;
+	private String postedTime;
 	private String deleted;
 	private String resNum;
 
 	// コンストラクタ
-	public PostBean(String post_id,
-					String reply_to,
+	public PostBean(String postId,
+					String replyTo,
 					String author,
 					String content,
-					String posted_time,
+					String postedTime,
 					String deleted,
 					String resNum) {
-		this.post_id = post_id;
-		this.reply_to = reply_to;
+		this.postId = postId;
+		this.replyTo = replyTo;
 		if (author != null) {
 			this.author = author
 					.replace("&", "&amp;")
@@ -38,17 +38,17 @@ public class PostBean {
 					.replaceAll("\"", "&quot;")
 					.replace("'", "&#39;");
 		}
-		this.posted_time = posted_time;
+		this.postedTime = postedTime;
 		this.deleted = deleted;
 		this.resNum = resNum;
 	}
 
-	public String getPost_id() {
-		return post_id;
+	public String getPostId() {
+		return postId;
 	}
 
-	public String getReply_to() {
-		return reply_to;
+	public String getReplyTo() {
+		return replyTo;
 	}
 
 	public String getAuthor() {
@@ -59,8 +59,8 @@ public class PostBean {
 		return content;
 	}
 
-	public String getPosted_time() {
-		return posted_time;
+	public String getPostedTime() {
+		return postedTime;
 	}
 
 	public String getDeleted() {
