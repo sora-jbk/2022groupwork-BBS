@@ -41,11 +41,7 @@ public class InsertPOST extends HttpServlet {
 			res.sendRedirect("/Error");
 		}
 
-		try {
-			// Homeに画面を遷移
-			res.sendRedirect("Home?R=" + reply);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		// Homeに画面を遷移
+		res.sendRedirect("Home?R=" + reply);
 	}
 }

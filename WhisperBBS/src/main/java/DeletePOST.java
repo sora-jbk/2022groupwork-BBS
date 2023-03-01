@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class DeletePOST extends HttpServlet {
 
-	public void doPost(HttpServletRequest req, HttpServletResponse res) {
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		String delete = req.getParameter("D");
 
 		try (Database db = new Database()) {
@@ -17,10 +17,6 @@ public class DeletePOST extends HttpServlet {
 			throw new RuntimeException(e);
 		}
 
-		try {
-			res.sendRedirect("Home");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		res.sendRedirect("Home");
 	}
 }

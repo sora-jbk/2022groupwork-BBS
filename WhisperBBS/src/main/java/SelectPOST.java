@@ -12,7 +12,7 @@ public class SelectPOST extends HttpServlet {
 
 	// doGetメソッドをオーバーライド
 	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse res) {
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String r = req.getParameter("R");
 		String s = req.getParameter("S");
 
@@ -34,15 +34,9 @@ public class SelectPOST extends HttpServlet {
 			throw new RuntimeException(e);
 		}
 
-		try {
-			// 移動先をPrintに設定
-			RequestDispatcher rd = req.getRequestDispatcher("Print");
-			// ページを移動
-			rd.forward(req, res);
-		} catch (ServletException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		// 移動先をPrintに設定
+		RequestDispatcher rd = req.getRequestDispatcher("Print");
+		// ページを移動
+		rd.forward(req, res);
 	}
 }
