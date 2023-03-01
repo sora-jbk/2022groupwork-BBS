@@ -4,14 +4,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="shortcut icon" href="<%=request.getContextPath() %>\images\whispericon.JPG">
-		<link rel="stylesheet" href="<%=request.getContextPath() %>\css\Index.css">
+		<link rel="shortcut icon" href="<%=request.getContextPath() %>/images/whispericon.JPG">
+		<link rel="stylesheet" href="<%=request.getContextPath() %>/css/Index.css">
 		<%-- javaのメソッドを呼び出してくる<%= %> --%>
 		<title>WhisperBBS</title>
 	</head>
 	<body>
 		<div class="header">
-			<a href="http://localhost:8080/WhisperBBS/Home"><img src="<%=request.getContextPath() %>\images\whispericon.JPG" class="logo"></a><%-- ホーム画面に戻る --%>
+			<a href="http://localhost:8080/WhisperBBS/Home"><img src="<%=request.getContextPath() %>/images/whispericon.JPG" class="logo"></a><%-- ホーム画面に戻る --%>
 			<div class="search-wrap">
 				<form role="search" method="get" action="Home" class="search_container">
 					<input type="text" size="25" name="S" id="search-text">
