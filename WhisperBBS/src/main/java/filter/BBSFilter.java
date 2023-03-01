@@ -16,12 +16,12 @@ import javax.servlet.annotation.WebFilter;
 @WebFilter("/*")
 public class BBSFilter implements Filter {
 
-    /**
-     * Default constructor. 
-     */
-    public BBSFilter() {
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * Default constructor.
+	 */
+	public BBSFilter() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Filter#destroy()
@@ -48,5 +48,4 @@ public class BBSFilter implements Filter {
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
 	}
-
 }
