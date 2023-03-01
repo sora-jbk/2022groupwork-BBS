@@ -19,10 +19,12 @@ public class SelectPOST extends HttpServlet {
 	// doGetメソッドをオーバーライド
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {
+		String r = req.getParameter("R");
+		String s = req.getParameter("S");
+
 		// 初期ページには親コンテンツがないので、スレッドタイトルは要らない
-		if (req.getParameter("R") != null && !req.getParameter("R").isEmpty()) {
+		if (r != null && !r.isEmpty()) {
 			try {
-				String r = req.getParameter("R");
 				String sql = "SELECT "
 						+ "POST_ID, "
 						+ "REPLY_TO, "
@@ -90,13 +92,13 @@ public class SelectPOST extends HttpServlet {
 					, "bbs");
 
 			// パラメータ"R"がnullでなければWHERE句を追加
-			if (req.getParameter("R") != null && !req.getParameter("R").isEmpty() && !req.getParameter("R").equals("null")) {
+			if (r != null && !r.isEmpty() && !r.equals("null")) {
 				sql = sql + " WHERE REPLY_TO=?";
 			} else {
 				sql = sql + " WHERE REPLY_TO IS NULL";
 			}
 
-			if (req.getParameter("S") != null && !req.getParameter("S").isEmpty()) {
+			if (s != null && !s.isEmpty()) {
 				sql = sql + " AND CONTENT LIKE ?";
 			}
 
@@ -108,12 +110,12 @@ public class SelectPOST extends HttpServlet {
 
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			if (req.getParameter("R") != null && !req.getParameter("R").isEmpty() && !req.getParameter("R").equals("null")) {
-				ps.setString(counter, req.getParameter("R"));
+			if (r != null && !r.isEmpty() && !r.equals("null")) {
+				ps.setString(counter, r);
 				counter++;
 			}
-			if (req.getParameter("S") != null && !req.getParameter("S").isEmpty()) {
-				ps.setString(counter, "%" + req.getParameter("S") + "%");
+			if (s != null && !s.isEmpty()) {
+				ps.setString(counter, "%" + s + "%");
 			}
 
 			ResultSet rs = ps.executeQuery();
