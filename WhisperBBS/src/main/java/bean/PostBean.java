@@ -1,69 +1,70 @@
 package bean;
 
 public class PostBean {
-	private String post_id;
-	private String reply_to;
+
+	private String postId;
+	private String replyTo;
 	private String author;
 	private String content;
-	private String posted_time;
+	private String postedTime;
 	private String deleted;
 	private String resNum;
-	
-//	コンストラクタ
-	public PostBean(String post_id, 
-			String reply_to, 
-			String author, 
-			String content, 
-			String posted_time,
-			String deleted,
-			String resNum) {
-		
-		this.post_id = post_id;
-		this.reply_to = reply_to;
-		if(author != null) {
-			this.author = author
-					.replace("&", "&amp;")
-					.replace("<", "&lt;")
-					.replace(">", "&gt;")
-					.replace(" ", "&nbsp;")
-					.replaceAll("\"", "&quot;")
-					.replace("'", "&#39;");
-		}
-		if(content != null) {
-			this.content = content
-					.replace("&", "&amp;")
-					.replace("<", "&lt;")
-					.replace(">", "&gt;")
-					.replace(" ", "&nbsp;")
-					.replaceAll("\"", "&quot;")
-					.replace("'", "&#39;");
-		}
-		this.posted_time = posted_time;
+
+	// コンストラクタ
+	public PostBean(String postId,
+					String replyTo,
+					String author,
+					String content,
+					String postedTime,
+					String deleted,
+					String resNum) {
+		this.postId = postId;
+		this.replyTo = replyTo;
+		this.author = escapeHtml(author);
+		this.content = escapeHtml(content);
+		this.postedTime = postedTime;
 		this.deleted = deleted;
 		this.resNum = resNum;
-		
 	}
-	
-	public String getPost_id() {
-		return post_id;
+
+	public String getPostId() {
+		return postId;
 	}
-	public String getReply_to() {
-		return reply_to;
+
+	public String getReplyTo() {
+		return replyTo;
 	}
+
 	public String getAuthor() {
 		return author;
 	}
+
 	public String getContent() {
 		return content;
 	}
-	public String getPosted_time() {
-		return posted_time;
+
+	public String getPostedTime() {
+		return postedTime;
 	}
+
 	public String getDeleted() {
 		return deleted;
 	}
+
 	public String getResNum() {
 		return resNum;
 	}
 
+	private String escapeHtml(String s) {
+		if (s == null) {
+			return null;
+		}
+
+		return s.replace("&", "&amp;")
+				.replace("<", "&lt;")
+				.replace(">", "&gt;")
+				.replace(" ", "&nbsp;")
+				.replaceAll("\"", "&quot;")
+				.replace("'", "&#39;");
+	}
 }
